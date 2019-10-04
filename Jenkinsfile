@@ -6,9 +6,9 @@ node {
       git url: 'https://github.com/hrohden/udacity-capstone-project'
     }
 
-    // stage('Build') {
-      // sh "mvn clean compile"
-    // }
+    stage('Build') {
+      sh "mvn clean compile"
+    }
 
   // }
 
