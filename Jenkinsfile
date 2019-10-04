@@ -1,0 +1,7 @@
+node {
+
+    withMaven(maven:'maven') {
+
+    }
+
+}
