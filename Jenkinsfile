@@ -1,13 +1,15 @@
 node {
 
-    stage ('Build') {
+  withMaven(maven: 'maven') {
 
-    git url: 'https://github.com/hrohden/udacity-capstone-project'
-
-    withMaven(maven: 'maven-3')
-
-      // Run the maven build
-      sh "mvn clean compile"
-
+    stage('Checkout') {
+      git url: 'https://github.com/hrohden/udacity-capstone-project'
     }
+
+    stage('Build') {
+      sh "mvn clean compile"
+    }
+
   }
+
+}
