@@ -7,7 +7,7 @@ node {
     }
 
     stage('Build') {
-      sh "./mvnw clean compile"
+      sh "./mvnw clean package"
     }
 
   // }
