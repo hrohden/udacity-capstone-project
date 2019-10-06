@@ -1,15 +1,19 @@
 node {
 
-  // maven(maven: 'maven') {
-
     stage('Checkout') {
       git url: 'https://github.com/hrohden/udacity-capstone-project'
     }
 
-    stage('Build') {
-      sh "./mvnw clean package"
+    stage('Clean previous results') {
+      sh "./mvnw clean"
     }
 
-  // }
+    stage('Compile source code') {
+      sh "./mvnw compile"
+    }
+
+    stage('Package sources') {
+      sh "./mvnw package"
+    }
 
 }
