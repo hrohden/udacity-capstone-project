@@ -1,19 +1,25 @@
 node {
 
-    stage('Checkout') {
-      git url: 'https://github.com/hrohden/udacity-capstone-project'
-    }
+  def app
 
-    stage('Clean previous results') {
-      sh "./mvnw clean"
-    }
+  stage('Checkout') {
+    git url: 'https://github.com/hrohden/udacity-capstone-project'
+  }
 
-    stage('Compile source code') {
-      sh "./mvnw compile"
-    }
+  stage('Clean previous results') {
+    sh "./mvnw clean"
+  }
 
-    stage('Package sources') {
-      sh "./mvnw package"
-    }
+  stage('Compile source code') {
+    sh "./mvnw compile"
+  }
+
+  stage('Package sources') {
+    sh "./mvnw package"
+  }
+
+  stage('Build Docker image') {
+    app = docker.build("hrohden/udacitycapstone")
+  }
 
 }
