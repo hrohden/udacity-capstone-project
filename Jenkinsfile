@@ -1,6 +1,5 @@
 pipeline {
 
-  def app
 
   environment {
     registry = "hrohden/udacitycapstone"
@@ -8,6 +7,8 @@ pipeline {
   }
 
   stages {
+    def app
+
     stage('Checkout') {
       git url: 'https://github.com/hrohden/udacity-capstone-project'
     }
