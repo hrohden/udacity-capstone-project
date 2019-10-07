@@ -19,8 +19,7 @@ node {
   }
 
   stage('Build Docker image') {
-    // sh "docker build -t hrohden/udacitycapstone ."
-    sh "echo ${USER}"
+    sh "docker build -t hrohden/udacitycapstone ."
   }
 
 }
