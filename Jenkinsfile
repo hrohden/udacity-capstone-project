@@ -19,7 +19,7 @@ node {
   }
 
   stage('Build Docker image') {
-    app = docker.build("hrohden/udacitycapstone")
+    sh "docker build -t hrohden/udacitycapstone ."
   }
 
 }
