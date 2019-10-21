@@ -1,6 +1,11 @@
 node {
 
   def app
+  def version = readFile('VERSION')
+  def versions = version.split('\\.')
+  def major = versions[0]
+  def minor = versions[0] + '.' + versions[1]
+  def patch = version.trim()
 
   environment {
     registry = "hrohden/udacitycapstone"
@@ -30,6 +35,9 @@ node {
   stage('Push image') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
             app.push("latest")
+            app.push(major)
+            app.push(minor)
+            app.push(patch)
         }
     }
 
