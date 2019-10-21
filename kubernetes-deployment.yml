@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: application-deployment
+  name: application
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: application-deployment
+  template:
+    metadata:
+      labels:
+        name: application-deployment
+    spec:
+      containers:
+        - image: hrohden/udacitycapstone:latest
+          name: application
+          ports:
+            - containerPort: 8080
