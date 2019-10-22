@@ -15,7 +15,7 @@ spec:
         name: application-deployment
     spec:
       containers:
-        - image: hrohden/udacitycapstone:latest
+        - image: hrohden/udacitycapstone:1.0.0
           name: application
           ports:
             - containerPort: 8080
