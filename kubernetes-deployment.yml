@@ -5,7 +5,12 @@ metadata:
     name: application-deployment
   name: application
 spec:
-  replicas: 2
+  replicas: 4
+  strategy:
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
+    type: RollingUpdate
   selector:
     matchLabels:
       name: application-deployment
