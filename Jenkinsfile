@@ -15,6 +15,10 @@ node {
     sh "./mvnw clean"
   }
 
+  stage('Lint') {
+    sh "htmlhint **/*.html"
+  }
+
   stage('Compile source code') {
     sh "./mvnw compile"
   }
